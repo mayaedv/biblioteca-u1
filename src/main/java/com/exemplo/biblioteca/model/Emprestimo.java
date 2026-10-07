@@ -4,13 +4,14 @@ import java.time.LocalDate;
 
 public class Emprestimo {
 
+    private static Long proximoId = 1L;
     private final Long id;
     private final Livro livro;
     private final Leitor leitor;
     private final LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
 
-    public Emprestimo(Long id, Livro livro, Leitor leitor) {
+    public Emprestimo(Livro livro, Leitor leitor) {
 
         if (livro == null) {
             throw new IllegalArgumentException("O livro é obrigatório!");
@@ -22,7 +23,7 @@ public class Emprestimo {
 
         livro.emprestar();
 
-        this.id = id;
+        this.id = proximoId++;
         this.livro = livro;
         this.leitor = leitor;
         this.dataEmprestimo = LocalDate.now();
@@ -61,5 +62,24 @@ public class Emprestimo {
 
     public LocalDate getDataDevolucao() {
         return dataDevolucao;
+    }
+
+    public void setDataEmprestimo(LocalDate now) {
+    }
+
+    public void setLivroId(Long livroId) {
+    }
+
+    public void setAtivo(boolean b) {
+    }
+
+    public void setDataDevolucao(LocalDate now) {
+    }
+
+    public void setLeitorId(Long leitorId) {
+    }
+
+    public boolean isAtivo() {
+        return true;
     }
 }

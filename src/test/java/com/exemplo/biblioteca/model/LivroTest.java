@@ -1,5 +1,7 @@
 package com.exemplo.biblioteca.model;
 
+import com.exemplo.biblioteca.repository.*;
+import com.exemplo.biblioteca.service.EmprestimoService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,4 +45,14 @@ public class LivroTest {
         // Act e Assert: tento emprestar de novo
         assertThrows(IllegalStateException.class, () -> livro.emprestar());
     }
+
+    @Test
+    void deveFicarDisponivelAoDevolverLivro(){
+        Livro livro = new Livro(1L, "Quarto do Despejo", "Carolina Maria de Jesus");
+
+        livro.emprestar();
+        livro.devolver();
+        assertTrue(livro.estaDisponivel());
+    }
+
 }
