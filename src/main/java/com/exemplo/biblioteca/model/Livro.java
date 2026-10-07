@@ -50,11 +50,4 @@ public class Livro {
     public String getTitulo() {
         return titulo;
     }
-
-    public void setDisponivel(boolean b) {
-    }
-
-    public boolean isDisponivel() {
-        return false;
-    }
 }

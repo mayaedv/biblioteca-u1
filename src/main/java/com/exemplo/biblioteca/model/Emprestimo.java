@@ -63,23 +63,4 @@ public class Emprestimo {
     public LocalDate getDataDevolucao() {
         return dataDevolucao;
     }
-
-    public void setDataEmprestimo(LocalDate now) {
-    }
-
-    public void setLivroId(Long livroId) {
-    }
-
-    public void setAtivo(boolean b) {
-    }
-
-    public void setDataDevolucao(LocalDate now) {
-    }
-
-    public void setLeitorId(Long leitorId) {
-    }
-
-    public boolean isAtivo() {
-        return true;
-    }
 }
