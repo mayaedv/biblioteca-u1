@@ -11,21 +11,16 @@ import java.util.Optional;
 public class EmprestimoRepositoryMemoria implements EmprestimoRepository {
 
     private final List<Emprestimo> emprestimos = new ArrayList<>();
-    private Long proximoId = 1L;
 
     @Override
     public Emprestimo salvar(Emprestimo emprestimo) {
-        if (emprestimo.getId() == null) {
-            // Se o emprestimo é novo, gera um ID e adiciona à lista
-            Emprestimo novoEmprestimo = new Emprestimo(proximoId++, emprestimo.getLivro(), emprestimo.getLeitor());
-            emprestimos.add(novoEmprestimo);
-            return novoEmprestimo;
-        } else {
-            // Se já existe, remove o antigo e adiciona o atualizado
-            emprestimos.removeIf(e -> e.getId() != null && e.getId().equals(emprestimo.getId()));
-            emprestimos.add(emprestimo);
-            return emprestimo;
-        }
+        emprestimos.removeIf(e ->
+                e.getId().equals(emprestimo.getId())
+        );
+
+        emprestimos.add(emprestimo);
+
+        return emprestimo;
     }
 
     @Override
