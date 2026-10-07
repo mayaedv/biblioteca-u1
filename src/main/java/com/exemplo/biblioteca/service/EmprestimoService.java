@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmprestimoService {
@@ -17,24 +18,26 @@ public class EmprestimoService {
     // limite máximo de empréstimos ativos por leitor
     private static final int LIMITE_EMPRESTIMOS = 3;
 
-    private final LivroRepository livroRepository;
-    private final LeitorRepository leitorRepository;
-    private final EmprestimoRepository emprestimoRepository;
+    private final LivroRepository LivroRepository;
+    private final LeitorRepository LeitorRepository;
+    private final EmprestimoRepository EmprestimoRepository;
 
     public EmprestimoService(
-            LivroRepository livroRepository,
-            LeitorRepository leitorRepository,
-            EmprestimoRepository emprestimoRepository) {
+            LivroRepository LivroRepository,
+            LeitorRepository LeitorRepository,
+            EmprestimoRepository EmprestimoRepository) {
 
-        this.livroRepository = livroRepository;
-        this.leitorRepository = leitorRepository;
-        this.emprestimoRepository = emprestimoRepository;
+        this.LivroRepository = LivroRepository;
+        this.LeitorRepository = LeitorRepository;
+        this.EmprestimoRepository = EmprestimoRepository;
     }
 
     public Emprestimo emprestar(Long livroId, Long leitorId) {
 
         // 1. buscar o livro
-        Livro livro = livroRepository.buscarPorId(livroId);
+        Livro livro = LivroRepository
+                .buscarPorId(livroId)
+                .orElseThrow(() -> new IllegalArgumentException("Livro não encontrado"));
 
         if (livro == null) {
             throw new IllegalArgumentException(
@@ -43,7 +46,8 @@ public class EmprestimoService {
         }
 
         // 2. buscar o leitor
-        Leitor leitor = leitorRepository.buscarPorId(leitorId);
+        Leitor leitor = LeitorRepository.buscarPorId(leitorId)
+                .orElseThrow(() -> new IllegalArgumentException("Leitor não encontrado"));
 
         if (leitor == null) {
             throw new IllegalArgumentException(
@@ -60,10 +64,10 @@ public class EmprestimoService {
 
         // 4. Contar empréstimos ativos do leitor
         long quantidadeEmprestimosAtivos =
-                emprestimoRepository.listar()
+                EmprestimoRepository.listarTodos()
                         .stream()
                         .filter(emprestimo ->
-                                emprestimo.getLeitorId().equals(leitorId)
+                                emprestimo.getLeitor().getId().equals(leitorId)
                                         && emprestimo.isAtivo())
                         .count();
 
@@ -77,18 +81,13 @@ public class EmprestimoService {
         }
 
         // 5. criar novo empréstimo
-        Emprestimo emprestimo = new Emprestimo();
-
-        emprestimo.setLivroId(livroId);
-        emprestimo.setLeitorId(leitorId);
-        emprestimo.setDataEmprestimo(LocalDate.now());
-        emprestimo.setAtivo(true);
+        Emprestimo emprestimo = new Emprestimo(livro, leitor);
 
         // 6. livro deixa de estar disponível
         livro.setDisponivel(false);
 
         // 7. salvar empréstimo
-        emprestimoRepository.salvar(emprestimo);
+        EmprestimoRepository.salvar(emprestimo);
 
         return emprestimo;
     }
@@ -99,7 +98,9 @@ public class EmprestimoService {
 
         // 1. buscar o empréstimo
         Emprestimo emprestimo =
-                emprestimoRepository.buscarPorId(emprestimoId);
+                EmprestimoRepository.buscarPorId(emprestimoId)
+                        .orElseThrow(() ->
+                                new IllegalArgumentException("Empréstimo não encontrado"));
 
         if (emprestimo == null) {
             throw new IllegalArgumentException(
@@ -115,10 +116,13 @@ public class EmprestimoService {
         }
 
         // 3. buscar o livro relacionado ao empréstimo
-        Livro livro =
-                livroRepository.buscarPorId(
-                        emprestimo.getLivroId()
-                );
+        Livro livro = LivroRepository.buscarPorId(
+                emprestimo.getLivro().getId()
+        ).orElseThrow(() ->
+                new IllegalStateException(
+                        "Livro relacionado ao empréstimo não foi encontrado."
+                )
+        );
 
         if (livro == null) {
             throw new IllegalStateException(
@@ -133,20 +137,21 @@ public class EmprestimoService {
         emprestimo.setDataDevolucao(LocalDate.now());
 
         // 5. liberar o livro
-        livro.setDisponivel(true);
+        livro.devolver();
 
         return emprestimo;
     }
 
 
     public List<Emprestimo> listar() {
-        return emprestimoRepository.listar();
+        return EmprestimoRepository.listarTodos();
     }
 
     //pendência = empréstimo que ainda está ativo.
     public List<Emprestimo> listarPendenciasDoLeitor(Long leitorId) {
 
-        Leitor leitor = leitorRepository.buscarPorId(leitorId);
+        Leitor leitor = LeitorRepository.buscarPorId(leitorId)
+                .orElseThrow(() -> new IllegalArgumentException("Leitor não encontrado"));
 
         if (leitor == null) {
             throw new IllegalArgumentException(
@@ -154,10 +159,10 @@ public class EmprestimoService {
             );
         }
 
-        return emprestimoRepository.listar()
+        return EmprestimoRepository.listarTodos()
                 .stream()
                 .filter(emprestimo ->
-                        emprestimo.getLeitorId().equals(leitorId)
+                        emprestimo.getLeitor().equals(leitorId)
                                 && emprestimo.isAtivo())
                 .toList();
     }
