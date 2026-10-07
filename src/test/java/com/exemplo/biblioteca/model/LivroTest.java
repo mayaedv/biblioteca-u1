@@ -2,12 +2,11 @@ package com.exemplo.biblioteca.model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LivroTest {
 
-    //Testa emprestar um livro que está disponível.
+    //Regra de negocio: Emprestar tornar o livro indisponivel
 
     @Test
     void emprestarDeveTornarLivroIndisponivel(){
@@ -22,6 +21,18 @@ public class LivroTest {
         assertFalse(livro.estaDisponivel());
     }
 
+    //Comportamento válido: livro novo começa disponivel
+    @Test
+    void livroNovoDeveComecarDisponivel(){
+
+        //Arrange e Act: cria o livro e a acao que quero testar
+        Livro livro = new Livro(1L, "Dom Casmurro", "Machado de Assis");
+
+        //Assert: confiro o resultado
+        assertTrue(livro.estaDisponivel());
+    }
+
+    //Excecao: não pode emprestar livro ja emprestado
     @Test
     void naoDevePermitirEmprestarLivroJaEmprestado() {
 
