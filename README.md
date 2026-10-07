@@ -6,7 +6,6 @@ Identificação
 Projeto: Sistema de Biblioteca
 
 Disciplina: Desenvolvimento Back-End
-
 Unidade: 1
 
 Turma: ADS 3P
@@ -39,7 +38,9 @@ A persistência dos dados é realizada em memória, utilizando estruturas como L
 
 Problema
 
-Uma biblioteca precisa manter o controle dos seus livros, leitores e empréstimos. O sistema foi desenvolvido para facilitar esse gerenciamento, permitindo acompanhar quais livros estão disponíveis, quais estão emprestados e quais empréstimos estão associados aos leitores.
+Uma biblioteca precisa manter o controle dos seus livros, leitores e empréstimos.
+
+O sistema foi desenvolvido para facilitar esse gerenciamento, permitindo acompanhar quais livros estão disponíveis, quais estão emprestados e quais empréstimos estão associados aos leitores.
 
 ⸻
 
@@ -83,7 +84,7 @@ O projeto utiliza uma arquitetura dividida em camadas:
 Controller
     |
     v
- Service
+Service
     |
     v
 Repository
@@ -166,59 +167,43 @@ Estrutura do projeto
 src/
 ├── main/
 │   └── java/
-│       └── com/
-│           └── exemplo/
-│               └── projeto/
-│                   ├── controller/
-│                   │   ├── LivroController.java
-│                   │   ├── LeitorController.java
-│                   │   └── EmprestimoController.java
-│                   │
-│                   ├── model/
-│                   │   ├── Livro.java
-│                   │   ├── Leitor.java
-│                   │   └── Emprestimo.java
-│                   │
-│                   ├── repository/
-│                   │   ├── LivroRepository.java
-│                   │   ├── LeitorRepository.java
-│                   │   └── EmprestimoRepository.java
-│                   │
-│                   ├── service/
-│                   │   ├── LivroService.java
-│                   │   ├── LeitorService.java
-│                   │   └── EmprestimoService.java
-│                   │
-│                   └── Main.java
+│       ├── controller/
+│       │   ├── LivroController.java
+│       │   ├── LeitorController.java
+│       │   └── EmprestimoController.java
+│       │
+│       ├── model/
+│       │   ├── Livro.java
+│       │   ├── Leitor.java
+│       │   └── Emprestimo.java
+│       │
+│       ├── repository/
+│       │   ├── LivroRepository.java
+│       │   ├── LeitorRepository.java
+│       │   └── EmprestimoRepository.java
+│       │
+│       ├── service/
+│       │   ├── LivroService.java
+│       │   ├── LeitorService.java
+│       │   └── EmprestimoService.java
+│       │
+│       └── Main.java
 │
 ├── test/
 │   └── java/
-│       └── com/
-│           └── exemplo/
-│               └── projeto/
-│                   └── service/
-│                       ├── LivroServiceTest.java
-│                       ├── LeitorServiceTest.java
-│                       └── EmprestimoServiceTest.java
+│       └── service/
+│           ├── LivroServiceTest.java
+│           ├── LeitorServiceTest.java
+│           └── EmprestimoServiceTest.java
 │
 ├── pom.xml
 └── README.md
-
-A estrutura deve ser ajustada caso os nomes dos pacotes ou arquivos sejam diferentes no projeto final.
 
 ⸻
 
 Como executar
 
-1. Clonar o repositório
-
-git clone URL_DO_REPOSITORIO
-
-2. Entrar na pasta do projeto
-
-cd nome-do-projeto
-
-3. Executar a aplicação
+Com o projeto aberto no terminal, execute:
 
 mvn spring-boot:run
 
@@ -231,8 +216,6 @@ Como executar os testes
 Para executar os testes automatizados:
 
 mvn test
-
-Os testes verificam comportamentos da aplicação, regras de negócio e situações inválidas.
 
 ⸻
 
@@ -259,7 +242,7 @@ O desenvolvimento do projeto utiliza Git para controle de versão e GitHub para 
 
 Foram utilizadas branches para organizar as etapas de desenvolvimento.
 
-Exemplo:
+Exemplo de organização:
 
 main
 |
@@ -278,7 +261,7 @@ feat: cria controllers
 test: adiciona testes do sistema
 docs: atualiza README
 
-O histórico de commits deve representar as etapas reais do desenvolvimento do projeto.
+O histórico de commits representa as etapas de desenvolvimento do projeto.
 
 ⸻
 
@@ -301,39 +284,43 @@ O desenvolvimento do projeto foi dividido nas seguintes etapas:
 
 Participação dos integrantes
 
-Integrante	Contribuições
-Bruna Francisca da Silva	A definir
-Kamyla Vitória Chagas de Andrade	A definir
-Luísa Geórgia Bezerra Alves	A definir
-Maria Gabriella Silva de Lima	A definir
-Mayara Eduarda Dias Vieira	A definir
-Tarcilla Maria de Araújo Almeida	A definir
-Thais Vitória da Silva Nascimento	A definir
+Bruna Francisca da Silva
 
-As contribuições devem ser preenchidas de acordo com as atividades realmente realizadas por cada integrante e com o histórico de commits do GitHub.
+Responsável pelo desenvolvimento do Repository, trabalhando na parte de armazenamento e recuperação dos dados da aplicação.
+
+Kamyla Vitória Chagas de Andrade
+
+Responsável pela implementação dos testes automatizados utilizando JUnit, em conjunto com Mayara Eduarda Dias Vieira.
+
+Luísa Geórgia Bezerra Alves
+
+Responsável pelo desenvolvimento dos Controllers, responsáveis pela comunicação e entrada e saída de dados da aplicação.
+
+Maria Gabriella Silva de Lima
+
+Responsável pela documentação do projeto e pela elaboração e organização do README no GitHub, junto com Luísa Geórgia Bezerra Alves.
+
+Mayara Eduarda Dias Vieira
+
+Responsável pelo desenvolvimento dos Models, em conjunto com Tarcilla Maria de Araújo Almeida, e pela implementação dos testes automatizados utilizando JUnit, em conjunto com Kamyla Vitória Chagas de Andrade.
+
+Tarcilla Maria de Araújo Almeida
+
+Responsável pelo desenvolvimento dos Models, em conjunto com Mayara Eduarda Dias Vieira.
+
+Thais Vitória da Silva Nascimento
+
+Responsável pelo desenvolvimento do Service, incluindo a implementação das regras de negócio e das funcionalidades relacionadas aos empréstimos.
 
 ⸻
 
 Uso de Inteligência Artificial
 
-Durante o desenvolvimento do projeto, ferramentas de Inteligência Artificial podem ser utilizadas como apoio para compreensão dos conteúdos, identificação de erros, organização do código e documentação.
+Durante o desenvolvimento do projeto, a Inteligência Artificial foi utilizada como ferramenta de apoio.
 
-Ferramenta utilizada
+A ferramenta utilizada foi o ChatGPT, principalmente para auxiliar na compreensão dos conteúdos, esclarecimento de dúvidas, identificação de possíveis erros e organização da documentação.
 
-ChatGPT
-
-Finalidade
-
-A ferramenta foi utilizada como apoio para:
-
-* esclarecer dúvidas sobre Java;
-* compreender conceitos de Spring Boot;
-* auxiliar na identificação de erros;
-* auxiliar na organização do projeto;
-* auxiliar na criação e compreensão de testes;
-* auxiliar na documentação.
-
-Todo código utilizado deve ser analisado, compreendido e adaptado pelos integrantes do grupo.
+O código utilizado no projeto foi analisado e adaptado pelos integrantes de acordo com as necessidades da aplicação.
 
 ⸻
 
@@ -381,4 +368,5 @@ Projeto de Avaliação — Unidade 1
 Disciplina: Back-End
 Turma: ADS 3P
 Professor: Victor Brayner
+
 Tecnologias: Java 21, Maven, Spring Boot e JUnit
