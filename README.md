@@ -19,7 +19,7 @@ Integrantes
 * Luísa Geórgia Bezerra Alves
 * Maria Gabriella Silva de Lima
 * Mayara Eduarda Dias Vieira
-* Tarcilla Maria de Araújo Almeida
+* Tarcilla Maria de Araujo Almeida
 * Thais Vitória da Silva Nascimento
 
 ⸻
