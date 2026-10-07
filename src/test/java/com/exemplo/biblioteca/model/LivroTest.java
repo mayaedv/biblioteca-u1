@@ -48,7 +48,7 @@ public class LivroTest {
 
     @Test
     void deveFicarDisponivelAoDevolverLivro(){
-        Livro livro = new Livro(1L, "Dom Casmurro", "Machado de Assis");
+        Livro livro = new Livro(1L, "Quarto do Despejo", "Carolina Maria de Jesus");
 
         livro.emprestar();
         livro.devolver();
