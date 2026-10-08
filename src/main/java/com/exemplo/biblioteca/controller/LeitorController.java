@@ -36,19 +36,24 @@ public class LeitorController {
                 case 1:
                     cadastrarLeitor(scanner);
                     break;
+
                 case 2:
                     listarLeitores();
                     break;
+
                 case 0:
                     System.out.println("Voltando...");
                     break;
+
                 default:
                     System.out.println("Opção inválida!");
             }
+
         } while (opcao != 0);
     }
 
     private void cadastrarLeitor(Scanner scanner) {
+
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
 
@@ -62,9 +67,16 @@ public class LeitorController {
         String cpf = scanner.nextLine();
 
         try {
-            Leitor leitor = new Leitor(proximoId++, nome, email, telefone, cpf);
-            leitorService.cadastrar(leitor);
+            leitorService.cadastrar(
+                    proximoId++,
+                    nome,
+                    email,
+                    telefone,
+                    cpf
+            );
+
             System.out.println("Leitor cadastrado com sucesso!");
+
         } catch (RuntimeException e) {
             System.out.println("Erro: " + e.getMessage());
         }
@@ -79,9 +91,12 @@ public class LeitorController {
         }
 
         for (Leitor leitor : leitores) {
-            System.out.println(leitor.getId() + " - " + leitor.getNome()
-                    + " | " + leitor.getEmail()
-                    + " | " + leitor.getTelefone());
+            System.out.println(
+                    leitor.getId() + " - " +
+                            leitor.getNome() + " | " +
+                            leitor.getEmail() + " | " +
+                            leitor.getTelefone()
+            );
         }
     }
 }
