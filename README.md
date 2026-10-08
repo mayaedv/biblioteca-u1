@@ -124,9 +124,9 @@ Responsável pela implementação das regras de negócio da aplicação.
 
 **Serviços principais:**
 
-* LivroService
-* Serviço de Leitor
-* EmprestimoService
+- LivroService
+- LeitorService
+- EmprestimoService
 
 ### Repositório
 
