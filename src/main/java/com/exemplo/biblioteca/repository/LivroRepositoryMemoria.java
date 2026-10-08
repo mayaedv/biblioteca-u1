@@ -20,13 +20,9 @@ public class LivroRepositoryMemoria implements LivroRepository {
 
     @Override
     public Optional<Livro> buscarPorId(Long id) {
-       for(Livro livro : livros){
-           if(livro.getId() != null && livro.getId().equals(id)) {
-               return Optional.of(livro);
-           }
-
-       }
-       return null;
+        return livros.stream()
+                .filter(livro -> livro.getId() != null && livro.getId().equals(id))
+                .findFirst();
     }
 
     @Override
@@ -36,11 +32,10 @@ public class LivroRepositoryMemoria implements LivroRepository {
 
     @Override
     public void deletarPorId(Long id) {
-
         Optional<Livro> livro = buscarPorId(id);
 
         if (livro.isPresent()) {
-            livros.remove(livro);
+            livros.remove(livro.get());
         }
     }
 }

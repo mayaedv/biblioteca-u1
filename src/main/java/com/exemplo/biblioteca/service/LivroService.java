@@ -15,6 +15,11 @@ public class LivroService {
         this.livroRepository = livroRepository;
     }
 
+    public Livro cadastrar(Livro livro) {
+        livroRepository.salvar(livro);
+        return livro;
+    }
+
     public void cadastrar(Long id, String titulo, String autor) {
         if (titulo == null || titulo.isBlank()) {
             throw new IllegalArgumentException("O título do livro é obrigatório!");

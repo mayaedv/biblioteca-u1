@@ -24,10 +24,8 @@ public class LeitorRepositoryMemoria implements LeitorRepository {
 
     @Override
     public Optional<Leitor> buscarPorId(Long id) {
-        for (Leitor leitor : leitores){
-            leitor.getId().equals(id);
-            return Optional.of(leitor);
-        }
-        return null;
+        return leitores.stream()
+                .filter(leitor -> leitor.getId() != null && leitor.getId().equals(id))
+                .findFirst();
     }
 }
