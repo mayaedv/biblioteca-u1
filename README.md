@@ -372,22 +372,23 @@ Durante a apresentação do projeto serão demonstrados:
 
 ---
 
-### Observações
+## Observações
 
-Este projeto foi desenvolvido com foco nos conteúdos estudados durante a Unidade 1, priorizando:
+Este projeto foi desenvolvido com foco nos conteúdos estudados durante a *Unidade 1*, priorizando:
 
-Programação Orientada a Objetos;
-organização em camadas;
-separação de responsabilidades;
-Repository;
-Services;
-Controllers;
-injeção de dependências;
-persistência em memória;
-testes automatizados;
-Maven;
-Spring Boot;
-Git e GitHub.
+* Programação Orientada a Objetos;
+* organização em camadas;
+* separação de responsabilidades;
+* Repository;
+* Services;
+* Controllers;
+* injeção de dependências;
+* persistência em memória;
+* testes automatizados;
+* Maven;
+* Spring Boot;
+* Git e GitHub.
+
 
 A persistência dos dados é realizada na memória, não sendo necessário utilizar banco de dados para este projeto.
 
