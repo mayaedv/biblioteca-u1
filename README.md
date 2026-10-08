@@ -178,7 +178,7 @@ Documentação do projeto.
 ⸻
 Participação dos integrantes
 Bruna Francisca da Silva
-Responsável pela implementação da camada de Repositórios em memória (LivroRepository, LeitorRepository e EmprestimoRepository), criando as interfaces e suas respetivas implementações com List e ArrayList para salvar, buscar por ID e listar os dados da aplicação.
+Responsável pelo desenvolvimento do Repositório, trabalhando na parte de armazenamento e recuperação dos dados da aplicação.
 Kamyla Vitória Chagas de Andrade
 Responsável pela implementação dos testes automatizados utilizando JUnit, em conjunto com Mayara Eduarda Dias Vieira.
 Luísa Geórgia Bezerra Alves
@@ -200,7 +200,6 @@ Exemplos de promts utilizados:
 - "Com base no enunciado, verifique se a proposta de um Sistema de Biblioteca está coerente com o tema escolhido e quais entidades e funcionalidades serão necessárias."
 - "Me explique passo a passo como criar e configurar um projeto Spring Boot para esse sistema, incluindo as dependências necessárias e a organização inicial das pastas."
 - "Me explique como criar testes unitários para a classe Leitor usando JUnit."
-- “Analise os testes que já fiz e verifique quais requisitos do projeto eles cobrem, e quais ainda estão faltando"
 - "Me explique como implementar a camada de Repositórios em memória para esse sistema, utilizando interfaces, List e ArrayList para gerenciar as entidades."
 ⸻
 t.
