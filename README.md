@@ -1,4 +1,5 @@
-#Sistema de Biblioteca
+Markdown
+Sistema de Biblioteca
 Identificação
 Projeto: Sistema de Biblioteca
 Disciplina: Desenvolvimento Back-End Unidade: 1
@@ -79,7 +80,7 @@ Os Serviços recebem os Repositórios por meio do Construtor, evitando a criaç�
 Exemplo:
 @Service public class LivroService { private final LivroRepository repository; public LivroService(LivroRepository repository) { this.repository = repository; } }
 ⸻
-Às vezes preparado
+Às vezes prepared
 Java 21
 Maven
 Bota de mola
@@ -150,7 +151,6 @@ Os testes têm como objetivo verificar se as funcionalidades e regras de negóci
 Git e GitHub
 O desenvolvimento do projeto utiliza Git para controle de versão e GitHub para armazenamento de código.
 Foram utilizados ramos para organizar as etapas de desenvolvimento.
-
 Exemplo de organização:
 main
 ├── feature/modelos
@@ -158,7 +158,6 @@ main
 ├── feature/servicos
 ├── feature/controladores
 └── feature/testes
-
 Exemplos de commits:
 feat: cria entidades do sistema feat: implementa repositories feat: implementa regras de empréstimo feat: cria controllers test: adiciona testes do sistema docs: atualizações README
 O histórico de commits representa as etapas de desenvolvimento do projeto.
@@ -178,7 +177,7 @@ Documentação do projeto.
 ⸻
 Participação dos integrantes
 Bruna Francisca da Silva
-Responsável pelo desenvolvimento do Repositório, trabalhando na parte de armazenamento e recuperação dos dados da aplicação.
+Responsável pelo desenvolvimento do Repositório, trabalhando na criação das interfaces e implementações em memória para armazenamento e recuperação dos dados da aplicação.
 Kamyla Vitória Chagas de Andrade
 Responsável pela implementação dos testes automatizados utilizando JUnit, em conjunto com Mayara Eduarda Dias Vieira.
 Luísa Geórgia Bezerra Alves
@@ -193,14 +192,15 @@ Thais Vitória da Silva Nascimento
 Responsável pelo desenvolvimento do Serviço, incluindo a implementação das regras de negócio e das funcionalidades relacionadas aos empréstimos.
 ⸻
 Uso de Inteligência Artificial
-Durante o desenvolvimento do projeto, a Inteligência Artificial foi utilizada exclusivamente como ferramenta de apoio e consulta para esclarecimento de dúvidas técnicas, compreensão de conceitos de arquitetura, auxílio no entendimento de erros de compilação e apoio na elaboração de testes e documentação. Todo o código utilizado no projeto foi analisado, adaptado e implementado pelos próprios integrantes.
+Durante o desenvolvimento do projeto, a Inteligência Artificial foi utilizada como ferramenta de apoio.
+Uma ferramenta utilizada principalmente para auxiliar na compreensão dos conteúdos, esclarecimento de dúvidas técnicas, identificação de possíveis erros e organização da documentação.
+O código utilizado no projeto foi detalhado e adaptado pelos integrantes de acordo com as necessidades da aplicação.
 
-Exemplos de promts utilizados:
-
+Exemplos de prompts utilizados:
 - "Com base no enunciado, verifique se a proposta de um Sistema de Biblioteca está coerente com o tema escolhido e quais entidades e funcionalidades serão necessárias."
 - "Me explique passo a passo como criar e configurar um projeto Spring Boot para esse sistema, incluindo as dependências necessárias e a organização inicial das pastas."
+- "Me explique como implementar a camada de Repositórios em memória para esse sistema, utilizando interfaces, List e ArrayList para gerenciar os dados."
 - "Me explique como criar testes unitários para a classe Leitor usando JUnit."
-- "Me explique como implementar a camada de Repositórios em memória para esse sistema, utilizando interfaces, List e ArrayList para gerenciar as entidades."
 ⸻
 t.
 Durante a apresentação do projeto serão demonstrados:
