@@ -1,24 +1,32 @@
 package com.exemplo.biblioteca.repository;
 
 import com.exemplo.biblioteca.model.Leitor;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class LeitorRepositoryMemoria implements LeitorRepository{
+@Repository
+public class LeitorRepositoryMemoria implements LeitorRepository {
+
+    private final List<Leitor> leitores = new ArrayList<>();
 
     @Override
     public Leitor salvar(Leitor leitor) {
-        return null;
+        leitores.add(leitor);
+        return leitor;
     }
 
     @Override
     public List<Leitor> listarTodos() {
-        return List.of();
+        return leitores;
     }
 
     @Override
     public Optional<Leitor> buscarPorId(Long id) {
-        return Optional.empty();
+        return leitores.stream()
+                .filter(leitor -> leitor.getId().equals(id))
+                .findFirst();
     }
 }
