@@ -182,7 +182,8 @@ src/
 │                   ├── controller/
 │                   │   ├── EmprestimoController.java
 │                   │   ├── LeitorController.java
-│                   │   └── LivroController.java
+│                   │   ├── LivroController.java
+│                   │   └── MenuPrincipal.java
 │                   │
 │                   ├── model/
 │                   │   ├── Emprestimo.java
@@ -239,7 +240,7 @@ Para executar os testes automatizados:
 mvn test
 ```
 
-No ambiente atual, os testes executados apresentaram:
+Os testes executados atualmente apresentam:
 
 ```text
 Tests run: 5
@@ -334,7 +335,7 @@ Responsável pelo desenvolvimento dos Controllers, responsáveis pela comunicaç
 
 ### Maria Gabriella Silva de Lima
 
-Responsável pela documentação do projeto e pela elaboração e organização do README no GitHub, junto com Luísa Geórgia Alves.
+Responsável pela documentação do projeto e pela elaboração e organização do README no GitHub, junto com Luísa Geórgia Bezerra Alves.
 
 ### Mayara Eduarda Dias Vieira
 
