@@ -112,6 +112,7 @@ Principais Controllers:
 - `LivroController`
 - `LeitorController`
 - `EmprestimoController`
+- `MenuPrincipal`
 
 ### Service
 
@@ -240,7 +241,7 @@ Para executar os testes automatizados:
 mvn test
 ```
 
-Os testes executados atualmente apresentam:
+A execução atual dos testes apresentou:
 
 ```text
 Tests run: 5
@@ -257,13 +258,10 @@ BUILD SUCCESS
 
 O projeto utiliza JUnit para realização dos testes.
 
-Entre os cenários atualmente testados estão:
+Atualmente, os testes executados incluem:
 
 - Teste de carregamento do contexto da aplicação.
-- Validação do título do livro.
-- Validação do autor do livro.
-- Validação do empréstimo de um livro.
-- Validação da devolução de um livro.
+- Testes relacionados à entidade `Livro`.
 
 Os testes têm como objetivo verificar se as funcionalidades e regras implementadas estão funcionando corretamente.
 
