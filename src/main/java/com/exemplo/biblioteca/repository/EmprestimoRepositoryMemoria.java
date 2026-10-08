@@ -24,14 +24,14 @@ public class EmprestimoRepositoryMemoria implements EmprestimoRepository {
     }
 
     @Override
-    public List<Emprestimo> listarTodos() {
-        return new ArrayList<>(emprestimos);
-    }
-
-    @Override
     public Optional<Emprestimo> buscarPorId(Long id) {
         return emprestimos.stream()
                 .filter(e -> e.getId() != null && e.getId().equals(id))
                 .findFirst();
+    }
+
+    @Override
+    public List<Emprestimo> listarTodos() {
+        return new ArrayList<>(emprestimos);
     }
 }

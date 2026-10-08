@@ -14,32 +14,23 @@ public class LivroRepositoryMemoria implements LivroRepository {
     private Long proximoId = 1L;
 
     @Override
-    public Livro salvar(Livro livro) {
-        if (livro.getId() == null) {
-            Livro novoLivro = new Livro(proximoId++, livro.getTitulo(), livro.getAutor());
-            livros.add(novoLivro);
-            return novoLivro;
-        } else {
-            deletarPorId(livro.getId());
-            livros.add(livro);
-            return livro;
-        }
-    }
-
-    @Override
-    public List<Livro> listarTodos() {
-        return new ArrayList<>(livros);
+    public void salvar(Livro livro) {
+        livros.add(livro);
     }
 
     @Override
     public Optional<Livro> buscarPorId(Long id) {
-        return livros.stream()
-                .filter(l -> l.getId() != null && l.getId().equals(id))
-                .findFirst();
+       for(Livro livro : livros){
+           if(livro.getId() != null && livro.getId().equals(id)) {
+               return Optional.of(livro);
+           }
+
+       }
+       return null;
     }
 
     @Override
-    public void deletarPorId(Long id) {
-        livros.removeIf(l -> l.getId() != null && l.getId().equals(id));
+    public List<Livro> listarTodos() {
+        return  new ArrayList<>(livros);
     }
 }
