@@ -1,11 +1,13 @@
 package com.exemplo.biblioteca.repository;
 
 import com.exemplo.biblioteca.model.Leitor;
+import com.exemplo.biblioteca.model.Livro;
+
 import java.util.List;
 import java.util.Optional;
 
 public interface LeitorRepository {
-    Leitor salvar(Leitor leitor);
-    List<Leitor> listarTodos();
+    void salvar(Leitor Leitor);
     Optional<Leitor> buscarPorId(Long id);
+    List<Leitor> listarTodos();
 }
