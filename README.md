@@ -142,7 +142,7 @@ A aplicação utiliza persistência em memória por meio de List e ArrayList.
 
 ---
 
-## Injeção de ilhós
+## Injeção de Dependências
 
 O projeto utiliza a injeção de dependências disponibilizadas pelo Spring.
 
@@ -310,7 +310,7 @@ O desenvolvimento do projeto foi dividido nas seguintes etapas:
 
 ### Bruna Francisca da Silva
 
-Responsável pelo desenvolvimento do Repositório, trabalhando na parte de armazenamento e recuperação dos dados da aplicação.
+Responsável pela implementação da camada de Repositórios em memória (LivroRepository, LeitorRepository e EmprestimoRepository), criando as interfaces e suas respetivas implementações com List e ArrayList para salvar, buscar por ID e listar os dados da aplicação.
 
 ### Kamyla Vitória Chagas de Andrade
 
@@ -372,7 +372,7 @@ Durante a apresentação do projeto serão demonstrados:
 
 ---
 
-## Observações
+### Observações
 
 Este projeto foi desenvolvido com foco nos conteúdos estudados durante a Unidade 1, priorizando:
 
