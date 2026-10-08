@@ -27,7 +27,7 @@ public class EmprestimoService {
         this.leitorRepository = leitorRepository;
     }
 
-    public Emprestimo emprestar(Long livroId, Long leitorId) {
+    public void emprestar(Long livroId, Long leitorId) {
         Livro livro = livroRepository.buscarPorId(livroId)
                 .orElseThrow(() ->
                         new IllegalArgumentException(
@@ -44,7 +44,7 @@ public class EmprestimoService {
 
         Emprestimo emprestimo = new Emprestimo(livro, leitor);
 
-        return emprestimoRepository.salvar(emprestimo);
+        emprestimoRepository.salvar(emprestimo);
     }
 
     public Emprestimo devolver(Long emprestimoId) {
