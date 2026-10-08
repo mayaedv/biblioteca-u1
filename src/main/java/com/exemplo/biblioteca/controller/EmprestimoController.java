@@ -18,7 +18,7 @@ public class EmprestimoController {
         this.scanner = new Scanner(System.in);
     }
 
-    public void emprestar(Long id) {
+    public void emprestar() {
 
         System.out.println("\n--- Novo Emprestimo ---");
 
@@ -29,7 +29,7 @@ public class EmprestimoController {
         Long LivroId = scanner.nextLong();
 
         emprestimoService.emprestar(
-                id,
+                LivroId,
                 LeitorId
         );
 
@@ -73,5 +73,43 @@ public class EmprestimoController {
 
             );
         }
+    }
+    public void menu() {
+
+        int opcao;
+
+        do {
+            System.out.println();
+            System.out.println("========== EMPRÉSTIMOS ==========");
+            System.out.println("1 - Realizar empréstimo");
+            System.out.println("2 - Devolver livro");
+            System.out.println("3 - Listar empréstimos");
+            System.out.println("0 - Voltar");
+            System.out.print("Escolha uma opção: ");
+
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    emprestar();
+                    break;
+
+                case 2:
+                    devolver();
+                    break;
+
+                case 3:
+                    listar();
+                    break;
+
+                case 0:
+                    System.out.println("Voltando...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
+
+        } while (opcao != 0);
     }
 }
