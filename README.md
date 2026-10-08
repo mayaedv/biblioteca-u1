@@ -99,3 +99,57 @@ public class LivroService {
         this.repository = repository; 
     } 
 }
+
+---
+
+## Tecnologias Utilizadas
+* Java 21
+* Maven
+* Spring Boot
+* JUnit
+* Git
+* GitHub
+
+---
+
+## Estrutura do projeto
+
+```text
+src/
+├── main/
+│   └── java/
+│       └── com/
+│           └── exemplo/
+│               └── biblioteca/
+│                   ├── controller/
+│                   │   ├── EmprestimoController.java
+│                   │   ├── LeitorController.java
+│                   │   └── LivroController.java
+│                   ├── model/
+│                   │   ├── Emprestimo.java
+│                   │   ├── Leitor.java
+│                   │   └── Livro.java
+│                   ├── repository/
+│                   │   ├── EmprestimoRepository.java
+│                   │   ├── EmprestimoRepositoryMemoria.java
+│                   │   ├── LeitorRepository.java
+│                   │   ├── LeitorRepositoryMemoria.java
+│                   │   ├── LivroRepository.java
+│                   │   └── LivroRepositoryMemoria.java
+│                   ├── service/
+│                   │   ├── EmprestimoService.java
+│                   │   ├── LeitorService.java
+│                   │   └── LivroService.java
+│                   └── BibliotecaApplication.java
+└── test/
+    └── java/
+        └── com/
+            └── exemplo/
+                └── biblioteca/
+                    └── service/
+                        ├── EmprestimoServiceTest.java
+                        ├── LeitorServiceTest.java
+                        └── LivroServiceTest.java
+
+pom.xml
+README.md
