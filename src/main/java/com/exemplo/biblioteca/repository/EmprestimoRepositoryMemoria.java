@@ -20,11 +20,12 @@ public class EmprestimoRepositoryMemoria implements EmprestimoRepository {
 
     @Override
     public Optional<Emprestimo> buscarPorId(Long id) {
-        for (Emprestimo emprestimo : emprestimos){
-            emprestimo.getId().equals(id);
-            return Optional.of(emprestimo);
-        }
-        return null;
+        return emprestimos.stream()
+                .filter(emprestimo ->
+                        emprestimo.getId() != null &&
+                                emprestimo.getId().equals(id)
+                )
+                .findFirst();
     }
 
     @Override
