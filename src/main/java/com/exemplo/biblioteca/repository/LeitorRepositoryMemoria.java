@@ -13,9 +13,8 @@ public class LeitorRepositoryMemoria implements LeitorRepository {
     private final List<Leitor> leitores = new ArrayList<>();
 
     @Override
-    public Leitor salvar(Leitor leitor) {
+    public void salvar(Leitor leitor) {
         leitores.add(leitor);
-        return leitor;
     }
 
     @Override
@@ -25,8 +24,10 @@ public class LeitorRepositoryMemoria implements LeitorRepository {
 
     @Override
     public Optional<Leitor> buscarPorId(Long id) {
-        return leitores.stream()
-                .filter(leitor -> leitor.getId().equals(id))
-                .findFirst();
+        for (Leitor leitor : leitores){
+            leitor.getId().equals(id);
+            return Optional.of(leitor);
+        }
+        return null;
     }
 }

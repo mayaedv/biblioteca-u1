@@ -33,4 +33,14 @@ public class LivroRepositoryMemoria implements LivroRepository {
     public List<Livro> listarTodos() {
         return  new ArrayList<>(livros);
     }
+
+    @Override
+    public void deletarPorId(Long id) {
+
+        Optional<Livro> livro = buscarPorId(id);
+
+        if (livro.isPresent()) {
+            livros.remove(livro);
+        }
+    }
 }

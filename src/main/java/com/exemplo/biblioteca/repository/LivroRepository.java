@@ -8,4 +8,5 @@ public interface LivroRepository {
     List<Livro> listarTodos();
     Optional<Livro> buscarPorId(Long id);
     void salvar(Livro livro);
+    void deletarPorId(Long id);
 }

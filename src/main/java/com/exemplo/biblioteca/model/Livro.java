@@ -7,14 +7,6 @@ public class Livro {
     private boolean disponivel;
 
     public Livro(Long id, String titulo, String autor) {
-        if (titulo == null || titulo.isBlank()) {
-            throw new IllegalArgumentException("O título do livro é obrigatório!");
-        }
-
-        if (autor == null || autor.isBlank()) {
-            throw new IllegalArgumentException("O autor do livro é obrigatório!");
-        }
-
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
